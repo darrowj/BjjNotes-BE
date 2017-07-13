@@ -1,5 +1,6 @@
 package com.jasondarrow.repository;
 
+import com.jasondarrow.model.Lookups;
 import com.jasondarrow.model.Note;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -20,12 +21,11 @@ public class DbSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        Note one = new Note("First", "First Note", "THis is my first note");
-        Note two = new Note("Second", "Second Note", "This is my second note");
+        //Note one = new Note("First", "First Note", "THis is my first note");
+        //Note two = new Note("Second", "Second Note", "This is my second note");
+        //this.noteRepository.deleteAll();
 
-        this.noteRepository.deleteAll();
 
-        List<Note> notes = Arrays.asList(one,two);
         //this.noteRepository.save(notes);
     }
 

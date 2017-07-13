@@ -2,12 +2,18 @@ package com.jasondarrow.controller;
 
 import com.jasondarrow.model.Note;
 import com.jasondarrow.repository.NoteRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.BeanUtils;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Api(value = "HomeControllerAPI", produces = MediaType.APPLICATION_JSON_VALUE)
 public class HomeController {
 
     private NoteRepository noteRepository;
@@ -16,10 +22,10 @@ public class HomeController {
         this.noteRepository = noteRepository;
     }
 
-    @RequestMapping("/")
-    public String home() {
-        return "BJJ Notes, reporting for duty!";
-    }
+    //@RequestMapping("/")
+    //public String home() {
+    //    return "BJJ Notes, reporting for duty!";
+    //}
 
     @GetMapping("/all")
     public List<Note> getAll() {
@@ -40,6 +46,8 @@ public class HomeController {
     }
 
     @RequestMapping(value = "Notes/{id}", method = RequestMethod.GET)
+    @ApiOperation("Gets the note with specific id")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "OK", response = Note.class)})
     public Note get(@PathVariable String id) {
         return noteRepository.findOne(id);
     }
