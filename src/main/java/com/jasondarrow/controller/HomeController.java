@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @Api(value = "HomeControllerAPI", produces = MediaType.APPLICATION_JSON_VALUE)
 public class HomeController {
 
@@ -24,8 +25,7 @@ public class HomeController {
 
     //@RequestMapping("/")
     //public String home() {
-    //    return "BJJ Notes, reporting for duty!";
-    //}
+    //    return "BJJ Notes, reporting for srvice
 
     @GetMapping("/all")
     public List<Note> getAll() {
@@ -60,10 +60,15 @@ public class HomeController {
     }
 
     @RequestMapping(value = "Notes/{id}", method = RequestMethod.DELETE)
-    public Note delete(@PathVariable String id) {
-        Note existingNote = noteRepository.findOne(id);
-        noteRepository.delete(existingNote);
-        return existingNote;
+    public Boolean delete(@PathVariable String id) {
+        try {
+            Note existingNote = noteRepository.findOne(id);
+            noteRepository.delete(existingNote);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error when deleting Note: " + e.getMessage());
+            return false;
+        }
     }
 
 }

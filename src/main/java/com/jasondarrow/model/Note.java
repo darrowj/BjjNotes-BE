@@ -25,6 +25,12 @@ public class Note {
 
     }
 
+    public Note(String title, String description) {
+        this.title = title;
+        this.description = description;
+
+    }
+
     public String getId() {
         return id;
     }
