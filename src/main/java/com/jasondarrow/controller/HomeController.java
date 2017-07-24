@@ -23,10 +23,6 @@ public class HomeController {
         this.noteRepository = noteRepository;
     }
 
-    //@RequestMapping("/")
-    //public String home() {
-    //    return "BJJ Notes, reporting for srvice
-
     @GetMapping("/all")
     public List<Note> getAll() {
 
@@ -53,10 +49,11 @@ public class HomeController {
     }
 
     @RequestMapping(value = "Notes", method = RequestMethod.PUT)
-    public Note update(@RequestBody Note Note) {
-        //Note existingNote = noteRepository.findOne(id);
-        //BeanUtils.copyProperties(Note, existingNote);
-        return noteRepository.save(Note);
+    public Note update(@RequestBody Note note) {
+        System.out.println("The Note is this in Update: " + note.toString());
+        //Note existingNote = noteRepository.findOne(note.getId());
+        //BeanUtils.copyProperties(note, existingNote);
+        return noteRepository.save(note);
     }
 
     @RequestMapping(value = "Notes/{id}", method = RequestMethod.DELETE)
@@ -69,6 +66,12 @@ public class HomeController {
             System.out.println("Error when deleting Note: " + e.getMessage());
             return false;
         }
+    }
+
+
+    @RequestMapping(value = "NoteCount", method = RequestMethod.GET)
+    public long noteCount() {
+        return noteRepository.count();
     }
 
 }
