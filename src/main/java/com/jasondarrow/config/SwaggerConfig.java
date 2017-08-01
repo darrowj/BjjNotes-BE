@@ -1,6 +1,6 @@
 package com.jasondarrow.config;
 
-import com.jasondarrow.controller.HomeController;
+import com.jasondarrow.controller.NotesController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @EnableSwagger2
 @PropertySource("classpath:swagger.properties")
-@ComponentScan(basePackageClasses = HomeController.class)
+@ComponentScan(basePackageClasses = NotesController.class)
 @Configuration
 public class SwaggerConfig {
 

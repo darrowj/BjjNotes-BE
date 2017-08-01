@@ -14,12 +14,12 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-@Api(value = "HomeControllerAPI", produces = MediaType.APPLICATION_JSON_VALUE)
-public class HomeController {
+@Api(value = "NotesControllerAPI", produces = MediaType.APPLICATION_JSON_VALUE)
+public class NotesController {
 
     private NoteRepository noteRepository;
 
-    public HomeController(NoteRepository noteRepository) {
+    public NotesController(NoteRepository noteRepository) {
         this.noteRepository = noteRepository;
     }
 
