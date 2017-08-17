@@ -10,14 +10,14 @@ import java.util.List;
  * Created by darrowj on 7/1/17.
  */
 @Document(collection = "lookups")
-public class Lookups {
+public class Lookup {
 
     @Id
     String id;
     String title;
     List<String> names;
 
-    public Lookups(String id, String title, List<String> names) {
+    public Lookup(String id, String title, List<String> names) {
         this.title = title;
         this.names = names;
     }

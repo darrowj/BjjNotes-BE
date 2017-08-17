@@ -1,12 +1,10 @@
 package com.jasondarrow.repository;
 
-import com.jasondarrow.model.Lookups;
 import com.jasondarrow.model.Note;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
