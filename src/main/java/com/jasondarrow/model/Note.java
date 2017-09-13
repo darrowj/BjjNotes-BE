@@ -14,11 +14,12 @@ public class Note {
     @Id
     String id;
     String title;
+    String engagement;
     String posture;
-    String startingPosition;  //Primary Position
     String offensivePosition;
     String submission;
     String guard;
+    String sweep;
     String description;
 
     public Note() { }
@@ -52,20 +53,20 @@ public class Note {
         this.title = title;
     }
 
+    public String getEngagement() {
+        return engagement;
+    }
+
+    public void setEngagement(String engagement) {
+        this.engagement = engagement;
+    }
+
     public String getPosture() {
         return posture;
     }
 
     public void setPosture(String posture) {
         this.posture = posture;
-    }
-
-    public String getStartingPosition() {
-        return startingPosition;
-    }
-
-    public void setStartingPosition(String startingPosition) {
-        this.startingPosition = startingPosition;
     }
 
     public String getOffensivePosition() {
@@ -82,6 +83,14 @@ public class Note {
 
     public void setGuard(String guard) {
         this.guard = guard;
+    }
+
+    public String getSweep() {
+        return sweep;
+    }
+
+    public void setSweep(String sweep) {
+        this.sweep = sweep;
     }
 
     public String getSubmission() {
@@ -105,11 +114,12 @@ public class Note {
         return "Note{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
+                ", enagement='" + engagement + '\'' +
                 ", posture='" + posture + '\'' +
-                ", startingPosition='" + startingPosition + '\'' +
                 ", offensivePosition='" + offensivePosition + '\'' +
                 ", submission='" + submission + '\'' +
                 ", guard='" + guard + '\'' +
+                ", sweep='" + sweep + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
