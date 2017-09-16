@@ -3,7 +3,9 @@ package com.jasondarrow.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 import javax.annotation.Generated;
+import java.util.Date;
 
 /**
  * Created by darrowj on 6/23/17.
@@ -21,8 +23,11 @@ public class Note {
     String guard;
     String sweep;
     String description;
+    String created;
+    String updated;
 
-    public Note() { }
+    public Note() {
+    }
 
     public Note(String id, String title, String description) {
         this.id = id;
@@ -109,18 +114,36 @@ public class Note {
         this.description = description;
     }
 
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public String getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(String updated) {
+        this.updated = updated;
+    }
+
     @Override
     public String toString() {
         return "Note{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", enagement='" + engagement + '\'' +
+                ", engagement='" + engagement + '\'' +
                 ", posture='" + posture + '\'' +
                 ", offensivePosition='" + offensivePosition + '\'' +
                 ", submission='" + submission + '\'' +
                 ", guard='" + guard + '\'' +
                 ", sweep='" + sweep + '\'' +
                 ", description='" + description + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
                 '}';
     }
 }

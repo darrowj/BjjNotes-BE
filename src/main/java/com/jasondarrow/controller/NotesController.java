@@ -10,6 +10,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -18,6 +21,7 @@ import java.util.List;
 public class NotesController {
 
     private NoteRepository noteRepository;
+    String pattern = "MM/dd/yyyy HH:mm";
 
     public NotesController(NoteRepository noteRepository) {
         this.noteRepository = noteRepository;
@@ -37,8 +41,11 @@ public class NotesController {
     }
 
     @RequestMapping(value = "Notes", method = RequestMethod.POST)
-    public Note create(@RequestBody Note Note) {
-        return noteRepository.insert(Note);
+    public Note create(@RequestBody Note note) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        note.setCreated(date);
+        return noteRepository.insert(note);
     }
 
     @RequestMapping(value = "Notes/{id}", method = RequestMethod.GET)
@@ -50,9 +57,11 @@ public class NotesController {
 
     @RequestMapping(value = "Notes", method = RequestMethod.PUT)
     public Note update(@RequestBody Note note) {
-        System.out.println("The Note is this in Update: " + note.toString());
         //Note existingNote = noteRepository.findOne(note.getId());
         //BeanUtils.copyProperties(note, existingNote);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        note.setUpdated(date);
         return noteRepository.save(note);
     }
 
