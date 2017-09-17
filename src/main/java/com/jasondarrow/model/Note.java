@@ -16,6 +16,7 @@ public class Note {
     @Id
     String id;
     String title;
+    String Category;
     String engagement;
     String posture;
     String offensivePosition;
@@ -46,6 +47,8 @@ public class Note {
         return id;
     }
 
+
+
     public void setId(String id) {
         this.id = id;
     }
@@ -56,6 +59,14 @@ public class Note {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getCategory() {
+        return Category;
+    }
+
+    public void setCategory(String category) {
+        Category = category;
     }
 
     public String getEngagement() {
@@ -135,6 +146,7 @@ public class Note {
         return "Note{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
+                ", Category='" + Category + '\'' +
                 ", engagement='" + engagement + '\'' +
                 ", posture='" + posture + '\'' +
                 ", offensivePosition='" + offensivePosition + '\'' +
@@ -142,8 +154,9 @@ public class Note {
                 ", guard='" + guard + '\'' +
                 ", sweep='" + sweep + '\'' +
                 ", description='" + description + '\'' +
-                ", created=" + created +
-                ", updated=" + updated +
+                ", created='" + created + '\'' +
+                ", updated='" + updated + '\'' +
                 '}';
     }
+
 }
