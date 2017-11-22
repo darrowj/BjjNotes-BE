@@ -35,9 +35,9 @@ public class ProfileController {
         return profileRepository.insert(profile);
     }
 
-    @RequestMapping(value = "Profile/{id}", method = RequestMethod.GET)
-    public Profile get(@PathVariable String id) {
-        return profileRepository.findOne(id);
+    @RequestMapping(value = "Profile/{uid}", method = RequestMethod.GET)
+    public Profile get(@PathVariable String uid) {
+        return profileRepository.findOne(uid);
     }
 
     @RequestMapping(value = "Profile", method = RequestMethod.PUT)
@@ -48,11 +48,11 @@ public class ProfileController {
         return profileRepository.save(profile);
     }
 
-    @RequestMapping(value = "Profile/{id}", method = RequestMethod.DELETE)
-    public Boolean delete(@PathVariable String id) {
+    @RequestMapping(value = "Profile/{uid}", method = RequestMethod.DELETE)
+    public Boolean delete(@PathVariable String uid) {
         try {
-            Profile existingNote = profileRepository.findOne(id);
-            profileRepository.delete(existingNote);
+            Profile existingProfile = profileRepository.findOne(uid);
+            profileRepository.delete(existingProfile);
             return true;
         } catch (Exception e) {
             System.out.println("Error when deleting Profile: " + e.getMessage());

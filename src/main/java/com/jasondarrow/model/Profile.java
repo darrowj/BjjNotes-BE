@@ -11,6 +11,7 @@ public class Profile {
 
     @Id
     String id;
+    String uid;
     String firstname;
     String lastname;
     String yearborn;
@@ -24,7 +25,7 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(String id, String firstname, String lastname, String yearBorn, String belt, String weight, String schoolLocation, String schoolname) {
+    public Profile(String id, String uid, String firstname, String lastname, String yearBorn, String belt, String weight, String schoolLocation, String schoolname) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -35,7 +36,7 @@ public class Profile {
         this.schoolname = schoolname;
     }
 
-    public Profile(String firstname, String lastname, String yearBorn, String belt, String weight, String schoolLocation, String schoolname) {
+    public Profile(String uid, String firstname, String lastname, String yearBorn, String belt, String weight, String schoolLocation, String schoolname) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.yearborn = yearBorn;
@@ -51,6 +52,14 @@ public class Profile {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getFirstname() {
@@ -129,6 +138,7 @@ public class Profile {
     public String toString() {
         return "Profile{" +
                 "id='" + id + '\'' +
+                ", uid='" + uid + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", yearBorn='" + yearborn + '\'' +
