@@ -15,6 +15,7 @@ public class Note {
 
     @Id
     String id;
+    String uid;
     String title;
     String Category;
     String engagement;
@@ -24,22 +25,27 @@ public class Note {
     String guard;
     String sweep;
     String description;
+    String published;
     String created;
     String updated;
 
     public Note() {
     }
 
-    public Note(String id, String title, String description) {
+    public Note(String id, String uid, String title, String description, String published) {
         this.id = id;
+        this.uid = uid;
         this.title = title;
         this.description = description;
+        this.published = published;
 
     }
 
-    public Note(String title, String description) {
+    public Note(String uid, String title, String description, String published) {
+        this.uid = uid;
         this.title = title;
         this.description = description;
+        this.published = published;
 
     }
 
@@ -47,10 +53,16 @@ public class Note {
         return id;
     }
 
-
-
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getTitle() {
@@ -125,6 +137,14 @@ public class Note {
         this.description = description;
     }
 
+    public String getPublished() {
+        return published;
+    }
+
+    public void setPublished(String published) {
+        this.published = published;
+    }
+
     public String getCreated() {
         return created;
     }
@@ -145,6 +165,7 @@ public class Note {
     public String toString() {
         return "Note{" +
                 "id='" + id + '\'' +
+                ", uid='" + uid + '\'' +
                 ", title='" + title + '\'' +
                 ", Category='" + Category + '\'' +
                 ", engagement='" + engagement + '\'' +
@@ -154,6 +175,7 @@ public class Note {
                 ", guard='" + guard + '\'' +
                 ", sweep='" + sweep + '\'' +
                 ", description='" + description + '\'' +
+                ", published='" + published + '\'' +
                 ", created='" + created + '\'' +
                 ", updated='" + updated + '\'' +
                 '}';

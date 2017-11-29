@@ -35,13 +35,21 @@ public class NotesController {
         return notes;
     }
 
-    @RequestMapping(value = "Notes", method = RequestMethod.GET)
+    @RequestMapping(value = "UserNotes/{uid}", method = RequestMethod.GET)
+    public List<Note> list(@PathVariable String uid) {
+        return noteRepository.findByUid(uid);
+    }
+
+    @RequestMapping(value = "HomeNotes", method = RequestMethod.GET)
     public List<Note> list() {
         return noteRepository.findAll();
     }
 
     @RequestMapping(value = "Notes", method = RequestMethod.POST)
     public Note create(@RequestBody Note note) {
+        //System.out.println("#################################################################################\n");
+        //System.out.println("The inserted Note: " + note.toString());
+        //System.out.println("#################################################################################\n");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
         note.setCreated(date);
@@ -77,10 +85,16 @@ public class NotesController {
         }
     }
 
-
-    @RequestMapping(value = "NoteCount", method = RequestMethod.GET)
-    public long noteCount() {
-        return noteRepository.count();
+    @RequestMapping(value = "NoteCount/{uid}", method = RequestMethod.GET)
+    @ApiOperation("Gets the notes with specific uid and returns the number of them")
+    public int noteCount(@PathVariable String uid) {
+        List<Note> notes = noteRepository.findByUid(uid);
+        return notes.size();
     }
 
+    @RequestMapping(value = "HomeNoteCount", method = RequestMethod.GET)
+    public long homeNoteCount() {
+
+        return noteRepository.count();
+    }
 }

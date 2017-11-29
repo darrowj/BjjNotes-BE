@@ -3,6 +3,7 @@ package com.jasondarrow.controller;
 import com.jasondarrow.model.Profile;
 import com.jasondarrow.repository.ProfileRepository;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,9 +37,11 @@ public class ProfileController {
     }
 
     @RequestMapping(value = "Profile/{uid}", method = RequestMethod.GET)
+    @ApiOperation("Gets the profile with a specific uid")
     public Profile get(@PathVariable String uid) {
-        return profileRepository.findOne(uid);
+        return profileRepository.findByUid(uid);
     }
+
 
     @RequestMapping(value = "Profile", method = RequestMethod.PUT)
     public Profile update(@RequestBody Profile profile) {
