@@ -39,7 +39,17 @@ public class ProfileController {
     @RequestMapping(value = "Profile/{uid}", method = RequestMethod.GET)
     @ApiOperation("Gets the profile with a specific uid")
     public Profile get(@PathVariable String uid) {
-        return profileRepository.findByUid(uid);
+        return profileRepository.findOne(uid);
+    }
+
+    @RequestMapping(value = "CheckProfileExists/{uid}", method = RequestMethod.GET)
+    @ApiOperation("Check if the profile with a specific uid")
+    public int checkProfileExists(@PathVariable String uid) {
+        List<Profile> notes = profileRepository.findByUid(uid);
+        System.out.println("#################################################################################\n");
+        System.out.println("The Note Check result: " + notes.size());
+        System.out.println("#################################################################################\n");
+        return notes.size();
     }
 
 
