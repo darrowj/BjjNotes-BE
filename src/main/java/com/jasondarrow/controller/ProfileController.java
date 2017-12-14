@@ -23,10 +23,10 @@ public class ProfileController {
         this.profileRepository = profileRepository;
     }
 
-    @RequestMapping(value = "Profiles", method = RequestMethod.GET)
-    public List<Profile> list() {
-        return profileRepository.findAll();
-    }
+    //@RequestMapping(value = "Profiles", method = RequestMethod.GET)
+    //public List<Profile> list() {
+    //    return profileRepository.findAll();
+    //}
 
     @RequestMapping(value = "Profile", method = RequestMethod.POST)
     public Profile create(@RequestBody Profile profile) {
@@ -39,17 +39,14 @@ public class ProfileController {
     @RequestMapping(value = "Profile/{uid}", method = RequestMethod.GET)
     @ApiOperation("Gets the profile with a specific uid")
     public Profile get(@PathVariable String uid) {
-        return profileRepository.findOne(uid);
+        return profileRepository.findOneByUid(uid);
     }
 
     @RequestMapping(value = "CheckProfileExists/{uid}", method = RequestMethod.GET)
     @ApiOperation("Check if the profile with a specific uid")
     public int checkProfileExists(@PathVariable String uid) {
-        List<Profile> notes = profileRepository.findByUid(uid);
-        System.out.println("#################################################################################\n");
-        System.out.println("The Note Check result: " + notes.size());
-        System.out.println("#################################################################################\n");
-        return notes.size();
+        List<Profile> profiles = profileRepository.findByUid(uid);
+        return profiles.size();
     }
 
 
@@ -61,6 +58,7 @@ public class ProfileController {
         return profileRepository.save(profile);
     }
 
+    /*
     @RequestMapping(value = "Profile/{uid}", method = RequestMethod.DELETE)
     public Boolean delete(@PathVariable String uid) {
         try {
@@ -72,5 +70,6 @@ public class ProfileController {
             return false;
         }
     }
+    */
 
 }

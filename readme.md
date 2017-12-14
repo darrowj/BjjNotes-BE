@@ -4,10 +4,16 @@
 
 This is a  project to create a BJJ Notes Web Application.  
 
+After initial deployment Mongo Authentication was enabled.  Further commits to the
+application.properties files are ignored.  
+
+Enable Authentication Reference -- 
+https://docs.mongodb.com/manual/tutorial/enable-authentication/
+
 ## Installation
 
 This will deploy using Maven.  It will be a self contained Spring Boot Application.
-UI will be based on Angular.  The Database is based on MongoDB.
+UI will be based on Angular.  The Database is based on MongoDBRemoved.
 
 ## Usage
 

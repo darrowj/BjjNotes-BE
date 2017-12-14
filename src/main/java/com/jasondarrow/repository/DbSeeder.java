@@ -20,7 +20,7 @@ public class DbSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        List<Note> notes = new ArrayList<Note>();
+        //List<Note> notes = new ArrayList<Note>();
         //Note one = new Note("5th", "THis is my dsfgt note");
         //Note two = new Note("3rd Note", "This is my sdfg note");
         //Note three = new Note("4th Note", "This is my dsfguyf note");

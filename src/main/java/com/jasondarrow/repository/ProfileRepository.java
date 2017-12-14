@@ -13,4 +13,6 @@ import java.util.List;
 public interface ProfileRepository extends MongoRepository<Profile,String> {
 
     public List<Profile> findByUid(String uid);
+
+    public Profile findOneByUid(String uid);
 }
