@@ -12,8 +12,8 @@ public class Profile {
     @Id
     String id;
     String uid;
-    String firstname;
-    String lastname;
+    String firstName;
+    String lastName;
     String yearborn;
     String belt;
     String weight;
@@ -27,8 +27,8 @@ public class Profile {
 
     public Profile(String id, String uid, String firstname, String lastname, String yearBorn, String belt, String weight, String schoolLocation, String schoolname) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstname;
+        this.lastName = lastname;
         this.yearborn = yearBorn;
         this.belt = belt;
         this.weight = weight;
@@ -37,8 +37,8 @@ public class Profile {
     }
 
     public Profile(String uid, String firstname, String lastname, String yearBorn, String belt, String weight, String schoolLocation, String schoolname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstname;
+        this.lastName = lastname;
         this.yearborn = yearBorn;
         this.belt = belt;
         this.weight = weight;
@@ -62,20 +62,20 @@ public class Profile {
         this.uid = uid;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getYearborn() {
@@ -139,8 +139,8 @@ public class Profile {
         return "Profile{" +
                 "id='" + id + '\'' +
                 ", uid='" + uid + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", yearBorn='" + yearborn + '\'' +
                 ", belt='" + belt + '\'' +
                 ", weight='" + weight + '\'' +
