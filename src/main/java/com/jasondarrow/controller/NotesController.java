@@ -65,8 +65,6 @@ public class NotesController {
 
     @RequestMapping(value = "Notes", method = RequestMethod.PUT)
     public Note update(@RequestBody Note note) {
-        //Note existingNote = noteRepository.findOne(note.getId());
-        //BeanUtils.copyProperties(note, existingNote);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
         note.setUpdated(date);
@@ -81,6 +79,7 @@ public class NotesController {
             return true;
         } catch (Exception e) {
             System.out.println("Error when deleting Note: " + e.getMessage());
+            e.printStackTrace();
             return false;
         }
     }
